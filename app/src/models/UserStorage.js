@@ -22,6 +22,17 @@ class UserStorage {
     }, {}); // newUsers의 초기값을 {}로 설정
     return newUsers;
   }
+
+  static getUserInfo(id){
+    const users = this.#users;
+    const idx = users.id.indexOf(id);
+    const usersKeys = Object.keys(users); // users의 모든 키값을 리스트로 저장 => [id, psword, name]
+    const userInfo = usersKeys.reduce((newUsers, info)=>{ // 키를 순회하면서 해당 idx에 해당하는 info 저장
+      newUsers[info] = users[info][idx];
+      return newUsers;
+    }, {});
+    return userInfo;
+  }
 }
 
 module.exports = UserStorage;

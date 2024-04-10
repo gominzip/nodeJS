@@ -23,11 +23,11 @@ function login() {
     .then((res)=>{   // then으로 Promise 접근
         if (res.success){
             location.href = "/";
-        }else{
+        } else{
             alert(res.msg);
         }
     })
     .catch((err)=>{
-        console.err("로그인 중 에러 발생")
+        console.error("로그인 중 에러 발생")
     })
 }
