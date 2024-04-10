@@ -17,10 +17,9 @@ class UserStorage {
     return userInfo;
   }
 
-  // 인자로 들어오는 field에 대한 정보만 반환하는 함수
-  static getUsers(...fields) {
-    // 메서드 역시 클래스 자체에서 접근하려면 static 필요
-    // const users = this.#users;
+  static #getUsers(data, isAll, fields) {
+    const users = JSON.parse(data);
+    if (isAll) return users;
     const newUsers = fields.reduce((newUsers, field) => {
       // 인자로 들어온 field값 순회
       if (users.hasOwnProperty(field)) {
@@ -32,6 +31,16 @@ class UserStorage {
     return newUsers;
   }
 
+  // 인자로 들어오는 field에 대한 정보만 반환하는 함수
+  static getUsers(isAll, ...fields) {
+    return fs
+      .readFile("./src/databases/users.json")
+      .then((data) => {
+        return this.#getUsers(data, isAll, fields);
+      })
+      .catch(console.error);
+  }
+
   static getUserInfo(id) {
     return fs
       .readFile("./src/databases/users.json")
@@ -41,11 +50,15 @@ class UserStorage {
       .catch(console.error);
   }
 
-  static save(userInfo) {
-    // const users = this.#users;
+  static async save(userInfo) {
+    const users = await this.getUsers(true); // 모든 데이터 받아오도록
+    if (users.id.includes(userInfo.id)) {
+      throw "이미 존재하는 아이디입니다.";
+    }
     users.id.push(userInfo.id);
     users.name.push(userInfo.name);
     users.psword.push(userInfo.psword);
+    fs.writeFile("./src/databases/users.json", JSON.stringify(users));
     return { success: true };
   }
 }
