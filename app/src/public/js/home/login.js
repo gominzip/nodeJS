@@ -4,19 +4,21 @@ const id = document.querySelector("#id"),
   psword = document.querySelector("#psword"),
   loginBtn = document.querySelector("button");
 
-loginBtn.addEventListener('click', login);
+loginBtn.addEventListener("click", login);
 
-function login(){
-    const req ={
-        id : id.value,
-        psword : psword.value,
-    };
-    
-    fetch("/login",{
-        method: "POST",
-        headers: {
-            "Content-Type" : "application/json",
-        },
-        body: JSON.stringify(req),
-    })
+function login() {
+  const req = {
+    id: id.value,
+    psword: psword.value,
+  };
+
+  fetch("/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(req),
+  })
+    .then((res) => res.json()) // Promise 반환
+    .then(console.log);   // then으로 Promise 접근
 }
