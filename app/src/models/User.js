@@ -10,7 +10,7 @@ class User {
   async login() {
     const client = this.body;
     try {
-      const user= await UserStorage.getUserInfo(client.id);
+      const user = await UserStorage.getUserInfo(client.id);
       if (user) {
         if (user.id === client.id && user.psword === client.psword) {
           return { success: true };
@@ -29,7 +29,7 @@ class User {
       const response = await UserStorage.save(client);
       return response;
     } catch (err) {
-      return { success: false, msg: err };
+      return { success: false, err };
     }
   }
 }
