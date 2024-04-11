@@ -3,6 +3,8 @@
 // 모듈
 const express = require("express");
 const bodyParser = require("body-parser");  // 요청 body를 파싱해주는 모듈
+const dotenv = require("dotenv");   // 환경변수 모듈
+dotenv.config();
 const app = express();
 
 // 라우팅
