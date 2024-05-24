@@ -10,10 +10,9 @@ const userRouter = require("./src/routes/user/user");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const corsOptions = {
-  origin: "http://localhost:3000",
-};
-app.use(cors(corsOptions));
+app.use(cors({
+    origin: '*',
+}));
 
 app.use("/", userRouter);
 
