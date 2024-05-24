@@ -26,16 +26,24 @@ const output = {
     const page = parseInt(req.query.page, 10);
     if (!isNaN(page)) {
       const itemsPerPage = 5;
-      if (page === 0) {
-        // 전체 목록
-        res.json(filteredUsers);
+      if (page < 0) {
+        // 페이지 번호가 유효하지 않은 경우 400
+        return res.status(400).json({ error: "Invalid page number" });
+      } else if (page === 0) {
+        // 전체 목록 반환
+        return res.status(200).json(filteredUsers);
       } else {
         const start = (page - 1) * itemsPerPage;
         const end = start + itemsPerPage;
-        res.json(filteredUsers.slice(start, end));
+        if (start >= filteredUsers.length) {
+          // 페이지가 범위를 벗어나는 경우
+          return res.status(404).json({ error: "Page not found" });
+        }
+        return res.status(200).json(filteredUsers.slice(start, end));
       }
     } else {
-      res.json(filteredUsers);
+      // 페이지 번호가 제공되지 않은 경우 전체 목록 반환
+      return res.status(200).json(filteredUsers);
     }
   },
 };
