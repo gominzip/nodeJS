@@ -21,5 +21,5 @@ try {
     console.log(`[HTTPS] Server is running on port ${port}`);
   });
 } catch (error) {
-  console.log("[HTTPS] HTTPS 오류가 발생하였습니다.");
+  console.log("[HTTPS] HTTPS 오류가 발생하였습니다.", error);
 }
