@@ -1,0 +1,35 @@
+[
+    { "name": "김태진", "gender": "male", "part": "frontend", "major": "소프트웨어학부" },
+    { "name": "박수빈", "gender": "female", "part": "frontend", "major": "경영학부" },
+    { "name": "변현석", "gender": "male", "part": "frontend", "major": "소프트웨어학부" },
+    { "name": "안예현", "gender": "female", "part": "frontend", "major": "산업보안학과" },
+    { "name": "이건희", "gender": "male", "part": "frontend", "major": "소프트웨어학부" },
+    { "name": "이주영", "gender": "female", "part": "frontend", "major": "예술공학부" },
+    { "name": "정선빈", "gender": "female", "part": "frontend", "major": "소프트웨어학부" },
+    { "name": "정은빈", "gender": "female", "part": "frontend", "major": "유아교육과" },
+    { "name": "조유빈", "gender": "female", "part": "frontend", "major": "경영학부" },
+    { "name": "황인영", "gender": "female", "part": "frontend", "major": "생명과학과" },
+
+    { "name": "권민혁", "gender": "male", "part": "backend", "major": "경제학부" },
+    { "name": "김동영", "gender": "male", "part": "backend", "major": "소프트웨어학부" },
+    { "name": "김명규", "gender": "male", "part": "backend", "major": "소프트웨어학부" },
+    { "name": "김예찬", "gender": "male", "part": "backend", "major": "소프트웨어학부" },
+    { "name": "박연우", "gender": "female", "part": "backend", "major": "소프트웨어학부" },
+    { "name": "박예빈", "gender": "female", "part": "backend", "major": "화학신소재공학부" },
+    { "name": "박채린", "gender": "female", "part": "backend", "major": "소프트웨어학부" },
+    { "name": "이강록", "gender": "male", "part": "backend", "major": "소프트웨어학부" },
+    { "name": "이영주", "gender": "female", "part": "backend", "major": "중국어문학과" },
+    { "name": "정현수", "gender": "female", "part": "backend", "major": "문헌정보학과" },
+
+    { "name": "강지영", "gender": "male", "part": "pm", "major": "공공인재학부" },
+    { "name": "김시연", "gender": "female", "part": "pm", "major": "경영학부" },
+    { "name": "김지현", "gender": "female", "part": "pm", "major": "러시아어문학과" },
+    { "name": "임현민", "gender": "male", "part": "pm", "major": "컴퓨터예술학부" },
+    { "name": "조하정", "gender": "female", "part": "pm", "major": "교육학과" },
+
+    { "name": "김은비", "gender": "female", "part": "design", "major": "에너지시스템공학부" },
+    { "name": "양채령", "gender": "female", "part": "design", "major": "교육학과" },
+    { "name": "오유진", "gender": "female", "part": "design", "major": "시각디자인과" },
+    { "name": "이예지", "gender": "female", "part": "design", "major": "산업디자인과" },
+    { "name": "최윤경", "gender": "female", "part": "design", "major": "교육학과" }
+]
