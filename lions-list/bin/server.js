@@ -1,15 +1,14 @@
+"use strict";
+
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const HTTPS = require("https");
 require("dotenv").config();
 
-const port = process.env.PORT || 443;
-const app = express();
+const app = require("../app"); // app.js 파일 연결
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+const port = process.env.PORT || 443;
 
 try {
   const option = {
@@ -36,7 +35,7 @@ try {
       .toString(),
   };
   HTTPS.createServer(option, app).listen(port, () => {
-    console.log(`[HTTPS] Server is runnig on port ${port}`);
+    console.log(`[HTTPS] Server is running on port ${port}`);
   });
 } catch (error) {
   console.log("[HTTPS] HTTPS 오류가 발생하였습니다.");
