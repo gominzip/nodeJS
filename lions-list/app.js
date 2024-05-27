@@ -5,8 +5,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 
-const userRouter = require("./src/routes/user/user");
+const homeRouter = require("./src/routes/home");
 
+app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -14,6 +15,6 @@ app.use(cors({
     origin: '*',
 }));
 
-app.use("/", userRouter);
+app.use("/", homeRouter);
 
 module.exports = app;
