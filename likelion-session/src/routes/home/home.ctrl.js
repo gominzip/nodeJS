@@ -4,7 +4,7 @@ const lions = require("../../databases/lions.json");
 const questions = require("../../databases/testlist.json");
 
 const process = {
-  userlist: (req, res) => {
+  lionlist: (req, res) => {
     let filteredUsers = lions;
 
     // 성별 필터링
