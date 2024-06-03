@@ -2,7 +2,7 @@
     "questions": [
         {
             "id": 1,
-            "question": "멋쟁이 사자처럼의 대표는 누구일까요?",
+            "question": "멋쟁이 사자처럼의 (전)대표는 누구일까요?",
             "choices": [
                 "1. 이두희",
                 "2. 이두목",
@@ -15,8 +15,8 @@
             "question": "12기 회장 최재영님의 인스타 아이디는 무엇일까요?",
             "choices": [
                 "1. zza_1ng",
-                "2. zza_Ing",
-                "3. zza_ing"
+                "2. zza_lng",
+                "3. zza_Ing"
             ],
             "answer": 2
         },

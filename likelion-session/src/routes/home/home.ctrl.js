@@ -67,39 +67,50 @@ const process = {
     }
 
     let correctCount = 0;
-    const incorrectQuestions = [];
-    const result = {resultImg:'', resultTitle:''}
+    // const incorrectQuestions = [];
+    // const result = { resultImg: "", resultTitle: "" };
 
     questions.questions.forEach((question, index) => {
       if (userAnswers[index] === question.answer) {
         correctCount++;
-      } else {
-        incorrectQuestions.push({
-          question: question.question,
-          answer: question.choices[question.answer -1],
-        });
       }
+      // else {
+      //   incorrectQuestions.push({
+      //     question: question.question,
+      //     answer: question.choices[question.answer - 1],
+      //   });
+      // }
     });
-
-    if (correctCount === 5){
-      result.resultImg = 'https://gominzipsession.o-r.kr/images/result3.png'
-      result.resultTitle = '👑 당신은 진정한 백수의 왕 🦁'
-    }else if (correctCount >= 3){
-      result.resultImg = 'https://gominzipsession.o-r.kr/images/result2.png'
-      result.resultTitle = '거의 다 맞추고 완전 럭키비키잖아~😊🍀'
-    }else if (correctCount >= 1){
-      result.resultImg = 'https://gominzipsession.o-r.kr/images/result1.png'
-      result.resultTitle = '아직 응애사자 🐱'
-    }else{
-      result.resultImg = 'https://gominzipsession.o-r.kr/images/result0.png'
-      result.resultTitle = '🌭 소세지0점 -_-;'
-    }
 
     return res.status(200).json({
-      result: result,
       correctCount: correctCount,
-      incorrectQuestions: incorrectQuestions,
     });
+  },
+
+  testresultByNum: (req, res) => {
+    const correctCount = parseInt(req.params.num, 10);
+
+    if (isNaN(correctCount) || correctCount < 0 || correctCount > 5) {
+      res.status(400).json({ message: "잘못된 번호입니다." });
+      return;
+    }
+
+    let result = {};
+    if (correctCount === 5) {
+      result.resultImg = "https://gominzipsession.o-r.kr/images/result3.png";
+      result.resultTitle = "완벽한 사자! 🦁";
+    } else if (correctCount >= 3 && correctCount <= 4) {
+      result.resultImg = "https://gominzipsession.o-r.kr/images/result2.png";
+      result.resultTitle = "거의 다 맞추고 완전 럭키비키잖아~😊🍀";
+    } else if (correctCount >= 1 && correctCount <= 2) {
+      result.resultImg = "https://gominzipsession.o-r.kr/images/result1.png";
+      result.resultTitle = "아직 응애사자 🐱";
+    } else if (correctCount === 0) {
+      result.resultImg = "https://gominzipsession.o-r.kr/images/result0.png";
+      result.resultTitle = "🌭 소세지0점 -_-;";
+    }
+
+    res.status(200).json(result);
   },
 };
 
